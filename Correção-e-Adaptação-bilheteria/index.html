@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoria e Integração de Sistemas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!--Contém todas as divs e centraliza-as-->
+    <div class="container">
+    <p id="instrucao">Digite um nome e clique no botão para adicioná-lo na lista<br>Digite SAIR para interromper o cadastro</p>
+    
+        <!--Área do botão de processamento-->
+        <div class="caixatexto">
+            <button onclick="processamento()">Iniciar Processamento</button>
+            <input type="text" id="nome" placeholder="Nome do convidado">
+        </div>
+
+        <!--Área da lista de convidados-->
+        <div class="caixatexto">
+            <p><b>Lista de convidados</b></p>
+            <ol id="lista"></ol>
+            <p id="recado"></p>
+        </div>
+
+    </div>
+</body>
+
+</html>

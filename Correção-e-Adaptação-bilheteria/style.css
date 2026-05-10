@@ -1,0 +1,49 @@
+body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #fff8dc;
+}
+
+/*impede que as outras divs se movam e centraliza as mesmas*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 97vh;
+}
+
+#instrucao {
+    text-align: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(118, 70, 19);
+    /*Mantem o parágrafo de intruções parado*/
+    position: absolute;
+    top: 20px;
+}
+
+.caixatexto {
+    padding: 10px;
+    background-color: #c1b896;
+    color: rgb(22, 22, 22);
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.211);
+    border: 2.5px dotted #aea688;
+}
+
+button {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin-right: 10px;
+    background-color: #ffebcd;
+    border: 2px solid #a19176;
+    border-radius: 10px;
+}
+
+input {
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+button:hover{
+    cursor: pointer;
+}
