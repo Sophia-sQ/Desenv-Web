@@ -1,31 +1,64 @@
 const clientes = [
-  { nome: "Ana Silva", altura: 1.65, peso: 60 },
-  { nome: "Bruno Costa", altura: 1.80, peso: 95 },
-  { nome: "Carla Dias", altura: 1.60, peso: 45 },
-  { nome: "Daniel Meireles", altura: 1.75, peso: 7 }
+    { nome: "Ana Silva", altura: 1.65, peso: 60 },
+    { nome: "Bruno Costa", altura: 1.80, peso: 95 },
+    { nome: "Carla Dias", altura: 1.60, peso: 45 },
+    { nome: "Daniel Meireles", altura: 1.75, peso: 72 },
+    { nome: "Elisa Borges", altura: 1.68, peso: 92 }
 ];
 
-const btn=document.getElementById('btn')
-const table=document.getElementById('tbody')
 
-let r=true;
+const calcularIMC = (peso, altura) => {
+    return (peso / (altura * altura)).toFixed(2);
+};
 
 
-function gerar_relatorio(){
+function gerarRelatorio() {
+  
+    const tbody = document.querySelector("tbody");
     
-    if (r==true) {
-        
+    tbody.innerHTML = ""; 
+
     for (let i = 0; i < clientes.length; i++) {
-        const trow=document.createElement('tr')
-        table.appendChild(trow)
-        for (const key in clientes[i]) {
-            td=document.createElement('td')
-            td.textContent=clientes[i][key]
-            //document.trow.appendChild(td)
-            trow.appendChild(td)
+        let cliente = clientes[i];
+        let imc = calcularIMC(cliente.peso, cliente.altura);
+        let classificacao = "";
+
+        switch (true) {
+            case (imc < 18.5):
+                classificacao = "Abaixo do peso";
+                break;
+            case (imc >= 18.5 && imc < 25):
+                classificacao = "Peso Normal";
+                break;
+            case (imc >= 25 && imc < 30):
+                classificacao = "Sobrepeso";
+                break;
+            case (imc >= 30):
+                classificacao = "Obesidade";
+                break;
+            default:
+                classificacao = "Indefinido";
         }
-        
+
+        let tr = document.createElement("tr");
+
+        let tdNome = document.createElement("td");
+        tdNome.textContent = cliente.nome;
+
+        let tdIMC = document.createElement("td");
+        tdIMC.textContent = imc;
+
+        let tdClassificacao = document.createElement("td");
+        tdClassificacao.textContent = classificacao;
+
+        tr.appendChild(tdNome);
+        tr.appendChild(tdIMC);
+        tr.appendChild(tdClassificacao);
+
+        tbody.appendChild(tr);
     }
-    r=false;
 }
-}
+
+document.querySelector("button").addEventListener("click", function() {
+    gerarRelatorio();
+});
